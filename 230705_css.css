@@ -1,0 +1,109 @@
+/* div {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  background-color: lightgray;
+} */
+/* 전체 선택자 */
+/* * {
+  color: red;
+} */
+/* 태그 선택자 : orange라는 클래스를 가진 요소를 선택*/
+/* span {
+  background-color: red;
+} */
+
+/* 클래스 선택자
+.orange {
+  color: orange;
+} */
+
+/* 아이디 선택자 : orange라는 아이디를 가진 요소를 선택*/
+/* #orange {
+  color: blue;
+} */
+
+/* 일치 선택자 */
+span.orange {
+  color: red;
+}
+
+/* 자식 선택자 */
+ul > .orange {
+  background-color: gray;
+}
+
+/* 하위 선택자 */
+ul .orange {
+  font-weight: bold;
+}
+
+/* 인접 형제 선택자 */
+.orange + li {
+  font-size: 30px;
+}
+
+/* 일반 형제 선택자 */
+.orange ~ li {
+  color: green;
+}
+
+/* hover : 마우스 커서를 올렸을 때*/
+a:hover {
+  color: red;
+}
+
+/* active : 마우스를 클릭하고 있는 동안 */
+a:active {
+  color: white;
+  background-color: black;
+}
+
+/* focus : 포커스가 되어 있을 때 */
+input:focus {
+  background-color: lightgray;
+}
+
+/* first-child */
+/* .fruits span:first-child {
+  color: red;
+}
+.fruits div:first-child {
+  color: blue;
+} */
+
+/* last-child */
+.fruits h3:last-child {
+  text-decoration: overline;
+}
+.fruits p:last-child {
+  color: green;
+}
+
+/* nth-child */
+.fruits span:nth-child(2) {
+  color: red;
+}
+
+/* not */
+.fruits *:not(span) {
+  background-color: aqua;
+}
+
+/* before */
+.fruits::before {
+  content: "과일 목록 시작";
+}
+
+/* after */
+.fruits::after {
+  content: "과일 목록 끝";
+}
+
+input[readonly] {
+  background-color: orange;
+}
+
+input[type="password"] {
+  color: red;
+}

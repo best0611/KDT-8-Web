@@ -1,0 +1,6 @@
+.box::before {
+  content: "택시";
+}
+.box::after {
+  content: "빨리";
+}

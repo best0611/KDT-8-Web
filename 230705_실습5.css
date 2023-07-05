@@ -1,0 +1,7 @@
+.stripes div:nth-child(2n + 1) {
+  color: white;
+  background-color: navy;
+}
+.stripes div:nth-child(2n) {
+  background-color: yellow;
+}
