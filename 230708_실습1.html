@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* img {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      img:hover {
+        transform: translate(0, 100px);
+        transform: translateY(100px);
+        transform: scaleX(10);
+        transform: rotate(90deg);
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+        transform: skewY(70deg);
+      } */
+      div {
+        position: relative;
+        display: flex;
+      }
+      .image1 {
+        z-index: 30;
+        transform: rotateY(45deg);
+        transform: skewY(30deg);
+        /* transform:translateX(100px); */
+      }
+      .image2 {
+        z-index: 20;
+        transform: rotateY(45deg);
+        transform: skewY(30deg);
+      }
+      .image3 {
+        z-index: 10;
+        transform: rotateY(45deg);
+        transform: skewY(30deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img class="image1" src="./dog.jpg" alt="dog" />
+    </div>
+    <div>
+      <img class="image2" src="./dog.jpg" alt="dog" />
+    </div>
+    <div>
+      <img class="image3" src="./dog.jpg" alt="dog" />
+    </div>
+  </body>
+</html>

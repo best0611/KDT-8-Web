@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* div {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        transition-property: width;
+        /* width에 전환 속성을 건다. */
+      /* transition-duration: 2s; */
+      /* 늘어나는 속도 */
+      /* transition-timing-function: ease; */
+      /* 점점 빨라짐 */
+      /* transition-delay: 0.5s; */
+
+      /* 전환 시작 전의 잠깐의 delay 지정 */
+      /* transition 속성 모두 한 줄로 쓸 수 있음
+        transition: width 2s ease 0.5s; */
+      /* }
+      div:hover {
+        width: 300px;
+      } */
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: cyan;
+        position: relative;
+        animation-name: myanim;
+        animation-duration: 2s;
+        animation-iteration-count: 3;
+        animation-timing-function: ease;
+        animation-delay: 1s;
+      }
+
+      @keyframes myanim {
+        0% {
+          left: 0px;
+          top: 0px;
+        }
+        25% {
+          left: 100px;
+          top: 0px;
+        }
+        50% {
+          left: 200px;
+          top: 0px;
+        }
+        75% {
+          left: 100px;
+          top: 0px;
+        }
+        100% {
+          left: 0px;
+          top: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./grass image.png" width="100px" height="100px" />
+    <br />
+    <div></div>
+  </body>
+</html>
