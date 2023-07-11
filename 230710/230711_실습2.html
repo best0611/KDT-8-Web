@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 실습 1.
+      //  function multify(first, second) {
+      //     return first * second;
+      //   }
+      //   let no1 = prompt("첫번째 숫자를 입력하세요");
+      //   let no2 = prompt("두번째 숫자를 입력하세요");
+      //   result = multify(no1, no2);
+      //   console.log(result);
+
+      // 실습 2.
+      //   function square(number) {
+      //     console.log(number ** 2);
+      //   }
+      //   let numbOne = prompt("숫자를 입력하세요");
+      //   square(numbOne);
+
+      // 실습 3.
+      function add(no1, no2) {
+        alert(no1 + no2);
+      }
+      function sub(no1, no2) {
+        alert(no1 - no2);
+      }
+      function divide(no1, no2) {
+        alert(no1 / no2);
+      }
+      function mul(no1, no2) {
+        alert(no1 * no2);
+      }
+      let numberOne = prompt("첫번째 숫자를 입력해주세요.");
+      numberOne = Number(numberOne);
+      let numberTwo = prompt("두번째 숫자를 입력해주세요.");
+      numberTwo = Number(numberTwo);
+    </script>
+  </head>
+  <body>
+    <button onclick="add(numberOne, numberTwo)">더하기</button>
+    <button onclick="sub(numberOne, numberTwo)">빼기</button>
+    <button onclick="divide(numberOne, numberTwo)">나누기</button>
+    <button onclick="mul(numberOne, numberTwo)">곱하기</button>
+  </body>
+</html>

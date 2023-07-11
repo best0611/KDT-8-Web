@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      const msg = "안녕하세요";
+      const name = "길동";
+
+      console.log(msg + name + "님");
+      // + : 변수를 문자로 변환 후 출력
+
+      console.log(msg, name, "님");
+
+      console.log(`${msg} ${name}님`);
+      // 벡틱 (''): (') 문자를 쓰다가 변수를 쓸 수 있다.
+
+      console.log("--------------------");
+      let colors = ["red", "orange", "yellow", "green"];
+      console.log(colors);
+      // 색상 : Array
+      console.log("색상 : " + colors);
+
+      console.log("색상 : ", colors);
+      // ,로 연결할 경우, 변수가 문자로 변환되지 않고 그대로 출력됨
+      console.log("색상 : ${colors}");
+
+      let list = [1, 2, 3, 4, 5, 6];
+      console.log(list[1]); //2
+      console.log(list.length); //6 (list의 길이를 출력)
+
+      list.push(7);
+      console.log(list);
+      // 배열의 가장 뒤에 값을 추가함.
+
+      list.pop();
+      console.log(list);
+      // 배열의 가장 뒤에 값을 삭제함.
+
+      // 성적 프로그램
+      //   let mathScore = prompt("수학 점수를 입력하세요");
+      //   let engScore = prompt("영어 점수를 입력하세요");
+
+      //   let avg = (mathScore + engScore) / 2;
+      //   // 자료형이 달라 일반적으로 오류 발생해야 함. JS는 유한 언어기 때문에 그냥 자동으로 숫자로 형변환하여 계산해버림... 문제발생!
+      //   console.log(avg);
+
+      let num = 456;
+      console.log(typeof num); //number
+      let num1 = String(num);
+      console.log(typeof num1); //string
+      let num2 = num.toString();
+      console.log(typeof num2); //string
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 실습 1.
+      //   let colors = [
+      //     "red",
+      //     "orange",
+      //     "yellow",
+      //     "green",
+      //     "blue",
+      //     "black",
+      //     "purple",
+      //   ];
+      //   console.log(colors[0], colors[1], colors[2], colors[3]);
+
+      //   console.log(colors[2]);
+
+      //   colors.push("skyblue");
+      //   console.log(colors);
+
+      //   console.log(colors.indexOf("black"));
+
+      //   console.log(colors.reverse());
+
+      //실습 2.
+      //   console.log(`${typeof 1} isn't ${typeof "안녕"} data type.`);
+      //   console.log(
+      //     `Typeof를 boolean이나 null에 사용하면, ${typeof null} 결과를 얻을 수 있습니다.`
+      //   );
+
+      //실습 4.
+      let mathScore = prompt("수학 점수를 입력하세요");
+      let engScore = prompt("영어 점수를 입력하세요");
+      mathScore = Number(mathScore);
+      engScore = Number(engScore);
+
+      let avgScore = (mathScore + engScore) / 2;
+      console.log(avgScore);
+    </script>
+  </head>
+  <body></body>
+</html>

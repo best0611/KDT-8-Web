@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      for (let i = 0; i < 10; i++) {
+        // 초기화 => i라는 변수를 0으로 세팅
+        // 조건 => i가 10보다 작을 때
+        // 증감식 => i를 1씩 키우겠다. (증가시키겠다.)
+        console.log("i :", i);
+      }
+
+      let flag = true;
+      while (flag) {
+        let a = prompt("끝내고 싶으면 exit을 입력하세요.");
+        if (a == "exit") {
+          flag = false;
+        } else {
+          console.log("입력한 값은 " + a + "입니다.");
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
