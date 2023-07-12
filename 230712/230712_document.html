@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+      .div1 {
+        background-color: red;
+      }
+      .div2 {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1">1</div>
+    <div class="div2">2</div>
+    <div class="div1">3</div>
+    <div class="div2">4</div>
+    <div class="div1" id="div5">5</div>
+    <script>
+      console.log(document);
+      console.log(document.title);
+
+      // getElementByIds
+      console.log(document.getElementById("div5"));
+
+      // getElementByClassName
+      console.log("--------------getElementByClassName");
+      // getElementByClassName : parameter로 보내는 클래스 이름을 가지고 있는 모든 요소를 가져온다.
+      console.log(document.getElementsByClassName("div1"));
+
+      console.log("----------querySelector");
+      // querySelector : 위에서부터 선택자에 일치하는 요소 하나만 가져온다.
+      console.log(document.querySelector("div")); //선택자
+      // querySelectorAll : 선택자에 일치하는 모든 요소를 배열 형태로 가져온다.
+      console.log(document.querySelectorAll(".div2"));
+      console.log(document.querySelectorAll(".div2").length);
+      console.log(document.querySelectorAll(".div2")[1]);
+
+      // 조심!!
+      // document에 write() 함수가 있어요.
+      // onclick 하면, 내가 설정한 write()함수가 실행되지 않음.
+    </script>
+    <button type="button" onclick="write()">작성</button>
+    <script>
+      function write() {
+        console.log("작성했습니다.");
+      }
+    </script>
+  </body>
+</html>

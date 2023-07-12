@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // array를 반복문 처리.
+      // for (초기식; 조건식; 증감식;) {명령}
+      // 초기식 -> 조건식 확인 -> 명령 -> 증감 -> 조건확인 -> 명령 -> 증감 .....
+
+      // 0 : apple, 1: banana, 2: melon, 3: cherry, 4: grape
+      let fruits = ["apple", "banana", "melon", "cherry", "grape"];
+      console.log("fruits : ", fruits);
+      console.log("apple : ", fruits[0]); // 특정한 값을 가져올 때는? 배열[인덱스]
+
+      // 기본 for문
+      for (let i = 0; i < fruits.length; i++) {
+        console.log("fruits[i] : ", fruits[i]);
+      }
+
+      // for of (굳이 i라는 새로운 변수를 만들고 싶지 않을 때)
+      // for ( 변수 of 배열 ) : 배열에 있는 요소를 하나씩 변수로 가져온다.
+      for (let f of fruits) {
+        console.log("for-of : ", f);
+      }
+
+      // forEach (함수임)
+      // 배열.forEach(( 변수 , 인덱스 , 배열 )=>{})
+      // 변수 > 배열에 들어있는 요소가 하나씩 들어온다.
+      // 인덱스 > 변수가 하나씩 들어올 때 그 변수의 인덱스
+      // 배열 > 현재 내가 돌고 있는 배열
+      fruits.forEach((f, index, arr) => {
+        // console.log("f : ", f);
+        // console.log("index : ", index);
+        // console.log("arr : ", arr);
+        console.log(f);
+      });
+
+      // 콜백함수 : 다름 함수에 parameter로 보내지는 함수.
+      // 그 함수한테 너가 원하는 작업하고, 콜백함수를 실행시켜달라고 요청하는 것.
+
+      // callbackFn : (value: string, index : number, array : string[])
+      // forEach에서 callback함수를 받는데, 그때 받는 함수는 3개의 parameter를 가질 수 있다.
+      // 3개의 parametr는 각각 value, index, array
+      // value: 반복을 돌 때 그 값
+      // index: 배열에서 value의 index
+      // array: 현재 돌고 있는 그 배열의 원본
+      let function2 = (a, b, c) => {
+        console.log("a : ", a);
+        console.log("b : ", b);
+        console.log("c : ", c);
+        console.log("function2가 실행되었다.");
+      };
+      fruits.forEach(function2);
+      // function2이 함수라고 할 때, 콜백함수를 보냈다.
+      // forEach 함수가 반복을 돌고, function2을 실행시켜라.
+    </script>
+  </head>
+  <body></body>
+</html>

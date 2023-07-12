@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   function solution(n) {
+      //     var answer = 0;
+      //     let len = String(n).length;
+      //     let m = n;
+      //     for (i = len - 1; i >= 0; i--) {
+      //       var q = Math.floor(m / 10 ** i);
+      //       m = n - q * 10 ** i;
+      //       answer += q;
+      //     }
+      //    return answer;
+      //   }
+      //   console.log(solution(123));
+      function solution(n) {
+        var answer = 0;
+        let arr = String(n).split(""); // arr = ["1","2","3"]
+        for (let i = 0; i < arr.length; i++) {
+          answer += Number(arr[i]);
+        }
+        return answer;
+      }
+      console.log(solution(123));
+    </script>
+  </head>
+  <body></body>
+</html>
