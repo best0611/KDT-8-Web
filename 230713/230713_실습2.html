@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let count = 3;
+      function Submit() {
+        count++;
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth();
+        let dd = date.getDate();
+        let hour = date.getHours();
+        let min = date.getMinutes();
+
+        let tr = document.createElement("tr");
+        let td_num = document.createElement("td");
+        let td_name = document.createElement("td");
+        let td_content = document.createElement("td");
+        let td_date = document.createElement("td");
+        let table = document.querySelector("table");
+        let gd = table.children.nextEl;
+
+        td_num.innerText = count;
+        // td_num.innerText = document.querySelectorAll("tr").length 로도 숫자 가져올 수 있음.
+        td_name.innerText = document.getElementById("writer").value;
+        td_content.innerText = document.getElementById("content").value;
+        td_date.innerText = `${year}-${month}-${dd}-${hour}-${min}`;
+
+        table.append(tr);
+        tr.append(td_num, td_name, td_content, td_date);
+
+        document.getElementById("writer").value = null;
+        document.getElementById("content").value = null;
+      }
+    </script>
+  </head>
+  <body>
+    <div>방명록입니다.</div>
+    <div>
+      <strong>작성자</strong>
+      <input type="text" id="writer" />
+    </div>
+    <div>
+      <strong>내용</strong>
+      <input type="text" id="content" />
+    </div>
+    <button onclick="Submit()">작성</button>
+
+    <table border="1" cellspacing="1" cellpadding="10">
+      <tr>
+        <th>번호</th>
+        <th>작성자</th>
+        <th>내용</th>
+        <th>작성일</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>김규리</td>
+        <td>여러분 반가워요</td>
+        <td>2022-7-2 15:3</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>김규리</td>
+        <td>오늘 수업도 열심히 해봐요</td>
+        <td>2022-7-2 15:3</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>홍길동</td>
+        <td>안녕!</td>
+        <td>2022-7-2 15:4</td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Calculate() {
+        let value1 = document.getElementById("value1").value;
+        let value2 = document.getElementById("value2").value;
+        let cal = document.getElementById("cal").value;
+        // switch (cal) {
+        //   case "*":
+        //     document.getElementById("concl").value = value1 * value2;
+        //     break;
+        //   case "/":
+        //     document.getElementById("concl").value = value1 / value2;
+        //     break;
+        //   case "-":
+        //     document.getElementById("concl").value = value1 - value2;
+        //     break;
+        //   case "+":
+        //     document.getElementById("concl").value =
+        //       Number(value1) + Number(value2);
+        // }
+
+        let result = eval(value1 + cal + value2);
+        // eval 함수는 문자열로 작성된 계산식을 계산해준다. 하지만, 모든 문자를 받아들여 실행하기 때문에, 보안 상의 문제가 있기 때문에 eval 함수는 웬만하면 사용하지 말아야 한다.. eval.. evil...
+        document.getElementById("result").value = result;
+      }
+      function Reset() {
+        document.getElementById("value1").value = null;
+        document.getElementById("value2").value = null;
+        document.getElementById("cal").value = null;
+        document.getElementById("concl").value = null;
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      값1:
+      <input type="text" id="value1" />
+    </div>
+    <div>
+      값2:
+      <input type="text" id="value2" />
+    </div>
+    <div>
+      연산자:
+      <input type="text" id="cal" />
+    </div>
+    <div>
+      결과:
+      <input type="text" id="concl" />
+    </div>
+    <br />
+    <button onclick="Calculate()">계산하기</button>
+    <button onclick="Reset()">초기화</button>
+  </body>
+</html>
