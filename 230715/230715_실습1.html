@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <main>
+      <header class="py-3 mb-3 border-bottom">
+        <div
+          class="container-fluid d-grid gap-3 align-items-center"
+          style="grid-template-columns: 1fr 2fr"
+        >
+          <div class="dropdown">
+            <a
+              href="#"
+              class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-emoji-smile"></i>
+            </a>
+            <ul class="dropdown-menu text-small shadow">
+              <li>
+                <a class="dropdown-item active" href="#" aria-current="page"
+                  >Overview</a
+                >
+              </li>
+              <li><a class="dropdown-item" href="#">Inventory</a></li>
+              <li><a class="dropdown-item" href="#">Customers</a></li>
+              <li><a class="dropdown-item" href="#">Products</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Reports</a></li>
+              <li><a class="dropdown-item" href="#">Analytics</a></li>
+            </ul>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <form class="w-100 me-3" role="search">
+              <input
+                type="search"
+                class="form-control"
+                placeholder="Search..."
+                aria-label="Search"
+              />
+            </form>
+
+            <div class="flex-shrink-0 dropdown">
+              <a
+                href="#"
+                class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-circle"></i>
+              </a>
+              <ul class="dropdown-menu text-small shadow">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Carts</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+    </main>
+
+    <ul class="nav nav-underline nav-fill">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Introduction</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          data-bs-toggle="dropdown"
+          href="#"
+          role="button"
+          aria-expanded="false"
+          >Products</a
+        >
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Whta's New</a></li>
+          <li><a class="dropdown-item" href="#">Sales</a></li>
+          <li><a class="dropdown-item" href="#">2023 S/S</a></li>
+          <li><a class="dropdown-item" href="#">2023 F/W</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" href="#">Shop in Virtual</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Event</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Mypage</a>
+      </li>
+    </ul>
+    <!-- <img
+      src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/w_1423,c_limit/db3fe3a6-e3e5-412c-b55a-0e37f0284ca2/nike-just-do-it.jpg"
+      class="img-fluid"
+    /> -->
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/w_1423,c_limit/db3fe3a6-e3e5-412c-b55a-0e37f0284ca2/nike-just-do-it.jpg"
+            class="d-block w-100"
+          />
+          <div class="carousel-caption d-none d-md-block" style="color: black">
+            <h3>2023 MEMBER DAYS</h3>
+            <!-- <p>welcome to 2023 festival for our members!</p> -->
+          </div>
+        </div>
+        <div class="carousel-item caption">
+          <img src="..." class="d-block w-100" style="width: 20; height: 20%" />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="d-flex">
+      <div class="card" class="p-2" style="width:25%">
+        <img
+          src="data:image/png;base64,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"
+          class="card-img-top"
+        />
+      
+        <div class="card-body" style="text-align: center; font-size: 12px; padding: 0;">
+            <span class="card-title">Running Club</span>
+            <a href="#" class="btn btn-primary btn-sm" style="font-size: 12px;">Join!</a>
+            
+        </div>
+      </div>
+      <form class="p-2 flex-grow-1">
+        <div id="emailHelp" class="form-text">
+            <i class="bi bi-envelope-at"></i>
+            관심사를 체크해주세요.
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Check me out</label
+          >
+        </div>
+        <div class="mb-3">
+            <div id="emailHelp" class="form-text">
+                <i class="bi bi-envelope-at"></i>
+                뉴스레터를 받을 이메일을 입력해주세요.
+            </div>
+            <div class="d-flex">
+
+                <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                style="display: inline"
+                />
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            </div>
+        
+      </form>
+    </div>
+  </body>
+</html>
