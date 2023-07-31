@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // spread 연산자
+      const a = [1, 2, 3];
+      const b = [4, 5];
+      const concat = a.concat(b); // 기존방식 - js 내장된 concat()함수 이용
+      console.log(concat);
+
+      const spread = [...a, ...b];
+      console.log(spread);
+
+      const person = {
+        name: "kim",
+        age: 29,
+      };
+      console.log({ ...person }); // spread 연산자는 객체에서도 사용할 수 있다.
+
+      const c = "hello";
+      console.log([...c]); // 문자열도 해체해줌
+
+      function get(a, ...rest) {
+        // ...rest는 항상 뒤에 작성해야 함. 나머지!
+        console.log(a);
+        console.log(...rest);
+      }
+      get(10, 20, 30, 40, 50);
+
+      // class
+      class Cat {
+        // 생성자
+        constructor(name, age) {
+          // 속성
+          this.name = name;
+          this.age = age;
+        }
+        // 메소드
+        mew() {
+          console.log("야옹");
+        }
+        eat() {
+          console.log("먹이를 먹습니다.");
+        }
+      }
+
+      const cat1 = new Cat("나비", 1); // 객체 생성됨
+      console.log(cat1);
+      cat1.mew();
+      cat1.eat();
+    </script>
+  </body>
+</html>
