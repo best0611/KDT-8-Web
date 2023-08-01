@@ -12,6 +12,7 @@
         <fieldset>
           <legend>성별</legend>
           <input type="radio" name="gender" value="남자" required />남자
+          <!-- 입력은 괜찮지만, 사용자가 선택하는 것은 value가 있어야 함. -->
           <input type="radio" name="gender" value="여자" required />여자
         </fieldset>
       </div>
@@ -19,6 +20,13 @@
       <div>
         <fieldset>
           <legend>생년월일</legend>
+          <!-- ejs 문법 활용!! -->
+          <!-- <select name="birthYear" id="year">
+            <% for (let i = 1990; i <= 2000; i++) { %>
+              <option value = "<%= i %>"><%= i %></option>
+            <% } %>
+          </select> 
+          <label for="year">년</label> -->
           <select name="year" id="year"></select>
           년
           <select name="month" id="month"></select>

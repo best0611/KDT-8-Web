@@ -12,7 +12,6 @@ app.set("views", "./views");
 
 // router (주소 구분)
 app.get("/", (req, res) => {
-  //   res.send("Hello");
   res.render("index", { title: "폼 실습" });
 });
 
@@ -28,7 +27,7 @@ app.get("/getForm", (req, res) => {
 app.post("/postForm", (req, res) => {
   console.log(req.body);
   res.render("result", {
-    title: "POST요청 폼 결과 확인하기",
+    title: "요청 폼 결과 확인하기",
     userInfo: req.body,
     // userInfo: {id: '', pw: ''}
   });
