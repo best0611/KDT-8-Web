@@ -31,15 +31,16 @@
           method: "post",
           data,
         }).then((res) => {
-          console.log("res", res);
-          if (res.data.Id === res.data.password) {
-            resultBox.textContent =
-              "아이디와 비밀번호가 일치합니다. 로그인에 성공하였습니다.";
-            resultBox.style.color = "blue";
-          } else {
+          if (res.data == "") {
             resultBox.textContent =
               "아이디와 비밀번호가 일치하지 않습니다. 로그인 정보를 확인해주세요.";
             resultBox.style.color = "red";
+          } else {
+            console.log(typeof res.data);
+            console.log("res", res);
+            resultBox.textContent =
+              "아이디와 비밀번호가 일치합니다. 로그인에 성공하였습니다.";
+            resultBox.style.color = "blue";
           }
         });
       }
