@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>FORM 연습 - Single</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="userfile" /><br />
+      <input type="text" name="title" /><br />
+      <button type="submit">업로드</button>
+    </form>
+    <h1>FORM 연습 - Multi(ver1)</h1>
+    <form action="/upload/array" method="post" enctype="multipart/form-data">
+      <input type="file" name="userfiles" multiple /><br />
+      <input type="text" name="title" /><br />
+      <button type="submit">업로드</button>
+    </form>
+    <h1>FORM 연습 - Multi(ver2)</h1>
+    <form action="/upload/fields" method="post" enctype="multipart/form-data">
+      <input type="file" name="userfile1" /><br />
+      <input type="text" name="title1" /><br />
+      <input type="file" name="userfile2" /><br />
+      <input type="text" name="title2" /><br />
+      <button type="submit">업로드</button>
+    </form>
+    <h1>동적 파일 업로드</h1>
+    <input type="file" name="dynamic-userfile" id="dynamic-file" /><br />
+    <button type="button" onclick="fileupload()">업로드</button>
+    <br />
+    <div class="result"></div>
+    <script>
+      const resultBox = document.querySelector(".result");
+      function fileupload() {
+        const file = document.getElementById("dynamic-file");
+        console.log(file.files[0]);
+        // 백엔드에 폼 형식으로 보내주기 위한 작업
+        const formData = new FormData();
+        formData.append("dynamic-userfile", file.files[0]);
+
+        axios({
+          method: "POST",
+          url: "/dynamicFile",
+          data: formData,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }).then((res) => {
+          console.log("res", res);
+          resultBox.innerHTML = `<div><img src=${res.data.path}></div>`;
+        });
+      }
+    </script>
+  </body>
+</html>

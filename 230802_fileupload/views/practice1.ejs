@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h4>개인정보</h4>
+    <form name="userInfo">
+      <label for="userId">아이디: </label>
+      <input type="text" name="userId" id="userId" /><br />
+      <label for="userPw">비밀번호: </label>
+      <input type="password" name="userPw" id="userPw" /><br />
+      <label for="username">이름: </label>
+      <input type="text" name="username" id="username" /><br />
+      <label for="userage">나이: </label>
+      <input type="text" name="userage" id="userage" /><br />
+    </form>
+    <label for="userimage">프로필 사진: </label>
+    <input type="file" name="userimage" id="userimage" /><br />
+    <button type="button" onclick="reset()">리셋</button>
+    <button type="button" onclick="signup()">회원가입</button>
+    <script>
+      function signup() {
+        const form = document.forms["userInfo"];
+        const data = {
+          username: form.username.value,
+          userId: form.userId.value,
+          userPw: form.userPw.value,
+          username: form.username.value,
+          userage: form.userage.value,
+        };
+        console.log(data);
+        axios({
+          method: "POST",
+          url: "/signup",
+          data: data,
+        }).then((res) => {
+          console.log("res", res);
+        });
+        const file = document.getElementById("userimage");
+        console.log(file.files[0]);
+        const formData = new FormData();
+        formData.append("userimage", file.files[0]);
+        axios({
+          method: "POST",
+          url: "signup/image",
+          data: formData,
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+      }
+    </script>
+  </body>
+</html>

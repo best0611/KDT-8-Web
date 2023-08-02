@@ -71,6 +71,7 @@
       </fieldset>
       <br />
       <button type="button" onclick="axiosGet()">회원가입</button>
+      <!-- onclick 이벤트의 함수와 form name이 동일하면 작동안됨 -->
     </form>
     <br />
     <br />
@@ -86,6 +87,15 @@
             hobbySel.push(hobbyCheck[i].value);
           }
         }
+
+        // 리더님 풀이 (checked 가져오기)
+        // const formId = document.getElementById('register');
+        // const hobby = [];
+        // const checked = formId.querySelectorAll('input[type='checkbox']:checked')
+        // checked.forEach ((elem) => {
+        // hobby.push(elem.value)
+        // })
+
         // console.log(hobbySel);
         const data = {
           name: form.username.value,

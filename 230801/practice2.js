@@ -23,6 +23,18 @@ app.post("/appLogin", (req, res) => {
   }
 });
 
+// 리더님 풀이
+// app.post("/appLogin", (req, res) => {
+//  console.log(req.body);
+//  const id = 'kdt8';
+//  const pw = '1234';
+//  if (id === req.body.username && pw === req.body.password){
+//    res.send({result:true, userInfo: req.body});
+// } else {
+//    res.send({result: false})
+// }
+// })
+
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
