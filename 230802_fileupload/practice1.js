@@ -7,6 +7,8 @@ const path = require("path");
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
+app.use("/uploads", express.static(__dirname + "/uploads"));
+
 const upload = multer({
   storage: multer.diskStorage({
     destination(req, file, done) {
@@ -24,12 +26,13 @@ app.get("/", (req, res) => {
   res.render("practice1");
 });
 
-app.post("/signup", (req, res) => {
-  console.log("back", req.body);
-  //   res.send(req.body);
-});
-app.post("/signup/image", upload.single("userimage"), (req, res) => {
-  console.log(req.file);
+app.post("/signup", upload.single("userimage"), (req, res) => {
+  req.file.filename =
+    "uploads/" + req.body.userId + path.extname(req.file.originalname);
+  const resultData = [req.body, req.file];
+  console.log(resultData);
+  res.render("p1_result", { user: resultData[0], image: resultData[1] });
+  // res.send(resultData);
 });
 
 app.listen(PORT, () => {
