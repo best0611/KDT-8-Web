@@ -29,7 +29,16 @@ exports.delete = (req, res) => {
   });
 };
 
-exports.patch = (req, res) => {
-  console.log(req.body);
-  visitor.patch();
+exports.get = (req, res) => {
+  console.log(req.query);
+  visitor.get(req.query.id, (result) => {
+    res.send(result);
+  });
+};
+
+exports.edit = (req, res) => {
+  console.log("req", req.body);
+  visitor.edit(req.body, (result) => {
+    res.send(result);
+  });
 };

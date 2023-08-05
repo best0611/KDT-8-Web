@@ -22,7 +22,7 @@
           id="content"
           placeholder="방명록"
         /><br />
-        <button type="button" onclick="writed()">등록</button>
+        <button type="button" onclick="writed()" id="submit">등록</button>
       </fieldset>
     </form>
     <table border="1" cellspacing="0" class="visitorTable">
@@ -40,7 +40,7 @@
           <td><%= data[i].name %></td>
           <td><%= data[i].comment %></td>
           <td>
-            <button type="button" onclick="modi('<%= data[i].id %>)">
+            <button type="button" onclick="get('<%= data[i].id %>')">
               수정
             </button>
           </td>
@@ -66,24 +66,8 @@
           data,
         }).then((res) => {
           console.log(res.data);
-          const index = res.data.length - 1;
-          const tablebox = document.createElement("tr");
-          document
-            .getElementById(`tr_${res.data[index - 1].id}`)
-            .after(tablebox);
-          tablebox.id = `tr_${res.data[index].id}`;
-          tablebox.innerHTML = `<td> ${res.data[index].id}</td>
-          <td> ${res.data[index].name}</td>
-          <td>${res.data[index].comment}</td>
-          <td><button type="button">수정</button></td>
-          <td>
-            <button type="button" onclick="del(${res.data[index]}.id)">
-              삭제
-              </button>
-              </td>`;
+          window.location.reload();
         });
-        document.getElementById("username").value = null;
-        document.getElementById("content").value = null;
       }
 
       function del(i) {
@@ -94,18 +78,43 @@
           data: { id: i },
         }).then((res) => {
           console.log(res.data);
-          document.getElementById(`tr_${res.data}`).remove();
-          // tr.remove();
+          window.location.reload();
         });
       }
 
-      function modi(i) {
+      function get(i) {
         console.log(i);
         axios({
-          url: "/visitor/edit",
-          method: "patch",
-          data: { id: 1 },
-        });
+          url: "/visitor/get",
+          method: "get",
+          params: { id: i },
+        })
+          .then((res) => {
+            console.log(res.data);
+            document.getElementById("username").value = res.data[0].name;
+            document.getElementById("content").value = res.data[0].comment;
+            const editButton = document.getElementById("submit");
+            return { id: res.data[0].id, btn: editButton };
+          })
+          .then((res) => {
+            console.log(res);
+            res.btn.onclick = edit;
+            function edit() {
+              const form = document.forms["visitor"];
+              const data = {
+                id: res.id,
+                username: form.username.value,
+                content: form.content.value,
+              };
+              axios({
+                url: "/visitor/edit",
+                method: "patch",
+                data: data,
+              }).then((res) => {
+                window.location.reload();
+              });
+            }
+          });
       }
     </script>
   </body>

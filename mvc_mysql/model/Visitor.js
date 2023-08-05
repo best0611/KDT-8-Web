@@ -25,17 +25,10 @@ exports.getVisitors = (callback) => {
 };
 
 exports.write = (info, callback) => {
-  // console.log(info.username, info.content);
-  const sql1 = `INSERT INTO visitor (name, comment) VALUES ('${info.username}','${info.content}');`;
-  const sql2 = "SELECT * FROM visitor";
-
-  conn.query(sql1, (err, rows) => {
+  const sql = `INSERT INTO visitor (name, comment) VALUES ('${info.username}','${info.content}');`;
+  conn.query(sql, (err, rows) => {
     if (err) throw err;
-    conn.query(sql2, (err, rows) => {
-      if (err) throw err;
-      console.log(rows);
-      callback(rows);
-    });
+    callback(rows);
   });
 };
 
@@ -44,9 +37,23 @@ exports.delete = (id, callback) => {
   const sql = `DELETE FROM visitor WHERE id = ${id}`;
   conn.query(sql, (err, rows) => {
     if (err) throw err;
-    console.log(rows);
     callback(id);
   });
 };
 
-exports.patch = () => {};
+exports.get = (id, callback) => {
+  // console.log(id);
+  const sql = `SELECT * FROM visitor WHERE id = ${id}`;
+  conn.query(sql, (err, rows) => {
+    if (err) throw err;
+    // console.log(rows);
+    callback(rows);
+  });
+};
+exports.edit = (info, callback) => {
+  const sql = `UPDATE visitor SET name = '${info.username}', comment = '${info.content}' WHERE id = ${info.id}`;
+  conn.query(sql, (err, rows) => {
+    if (err) throw err;
+    callback(rows);
+  });
+};
