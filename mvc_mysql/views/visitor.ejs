@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>방명록 등록</title>
   </head>
   <body>
@@ -17,11 +18,11 @@
         /><br />
         <input
           type="text"
-          name="visitText"
-          id="visitText"
+          name="content"
+          id="content"
           placeholder="방명록"
         /><br />
-        <button type="button">등록</button>
+        <button type="button" onclick="writed()">등록</button>
       </fieldset>
     </form>
     <table border="1" cellspacing="0" class="visitorTable">
@@ -38,11 +39,74 @@
           <td><%= data[i].id %></td>
           <td><%= data[i].name %></td>
           <td><%= data[i].comment %></td>
-          <td><button type="button">수정</button></td>
-          <td><button type="button">삭제</button></td>
+          <td>
+            <button type="button" onclick="modi('<%= data[i].id %>)">
+              수정
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="del('<%= data[i].id %>')">
+              삭제
+            </button>
+          </td>
         </tr>
         <% } %>
       </tbody>
     </table>
+    <script>
+      function writed() {
+        const form = document.forms["visitor"];
+        const data = {
+          username: form.username.value,
+          content: form.content.value,
+        };
+        axios({
+          url: "/visitor/write",
+          method: "POST",
+          data,
+        }).then((res) => {
+          console.log(res.data);
+          const index = res.data.length - 1;
+          const tablebox = document.createElement("tr");
+          document
+            .getElementById(`tr_${res.data[index - 1].id}`)
+            .after(tablebox);
+          tablebox.id = `tr_${res.data[index].id}`;
+          tablebox.innerHTML = `<td> ${res.data[index].id}</td>
+          <td> ${res.data[index].name}</td>
+          <td>${res.data[index].comment}</td>
+          <td><button type="button">수정</button></td>
+          <td>
+            <button type="button" onclick="del(${res.data[index]}.id)">
+              삭제
+              </button>
+              </td>`;
+        });
+        document.getElementById("username").value = null;
+        document.getElementById("content").value = null;
+      }
+
+      function del(i) {
+        console.log(i);
+        axios({
+          url: "/visitor/delete",
+          method: "delete",
+          data: { id: i },
+        }).then((res) => {
+          console.log(res.data);
+          document.getElementById(`tr_${res.data}`).remove();
+          // tr.remove();
+        });
+      }
+
+      function modi(i) {
+        console.log(i);
+        axios({
+          url: "/visitor/edit",
+          method: "patch",
+          data: { id: 1 },
+        });
+      }
+    </script>
   </body>
 </html>
