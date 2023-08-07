@@ -66,16 +66,19 @@
           data,
         }).then((res) => {
           console.log(res.data);
-          window.location.reload();
+          window.location.reload(); // 새로고침을 하면, get 방식으로 받아오기 때문에, 테이블 전체가 다시 불러와지는 것이다.
         });
       }
 
       function del(i) {
+        if (!confirm("삭제하시겠습니까?")) {
+          return;
+        }
         console.log(i);
         axios({
           url: "/visitor/delete",
           method: "delete",
-          data: { id: i },
+          data: { id: Number(i) },
         }).then((res) => {
           console.log(res.data);
           window.location.reload();
@@ -85,9 +88,9 @@
       function get(i) {
         console.log(i);
         axios({
-          url: "/visitor/get",
+          url: "/visitor/get", // 이런 주소일 때는 query string 방식으로 쓰라고 한 것 (/visitor/get?id= 이런 방식으로). '/visitor/get:id' 같은 주소일 때 params 방식으로 쓰라는 의미다. --> 코테 시, 생각해야 할 부분!
           method: "get",
-          params: { id: i },
+          params: { id: Number(i) },
         })
           .then((res) => {
             console.log(res.data);

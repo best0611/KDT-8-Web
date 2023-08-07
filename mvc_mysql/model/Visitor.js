@@ -8,13 +8,23 @@
 
 const mysql = require("mysql");
 const conn = mysql.createConnection({
-  host: "localhost",
+  host: "localhost", // 내 컴퓨터로 접근하게 하겠다.
   user: "user",
   password: "1234",
   database: "kdt8",
 });
 
+// mysql 연결되었는지 확인 가능
+// conn.connect(err => {
+//   if (err) [
+//     console.log('error');
+//     return;
+//   ]
+//   console.log('connect')
+// })
+
 // mysql 연결 후
+// controller가 사용할 수 있도록 exports
 exports.getVisitors = (callback) => {
   const sql = "SELECT * FROM visitor;";
   conn.query(sql, (err, rows) => {
