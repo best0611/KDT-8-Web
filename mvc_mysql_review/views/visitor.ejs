@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Visitor Page</title>
+  </head>
+  <body>
+    <form name="visitRecord">
+      <fieldset>
+        <legend>방명록</legend>
+        <label for="name">이름: </label>
+        <input type="text" name="name" id="name" /><br />
+        <label for="comment">방명록: </label>
+        <input type="text" name="comment" id="comment" /><br />
+        <button type="button" onclick="record()">등록</button>
+      </fieldset>
+    </form>
+    <br />
+    <table border="1" cellspacing="0">
+      <thead>
+        <td>ID</td>
+        <td>사용자</td>
+        <td>방명록</td>
+        <td>수정</td>
+        <td>삭제</td>
+      </thead>
+      <tbody>
+        <% for (let i=0; i < data.length; i++) { %>
+        <tr>
+          <td><%= data[i].id %></td>
+          <td><%= data[i].name %></td>
+          <td><%= data[i].comment %></td>
+          <td>
+            <button type="button" onclick="pick('<%= data[i].id %>')">
+              수정
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="del('<%= data[i].id %>')">
+              삭제
+            </button>
+          </td>
+          <% } %>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+  <script>
+    function record() {
+      const form = document.forms["visitRecord"];
+      data = {
+        name: form.name.value,
+        comment: form.comment.value,
+      };
+      axios({
+        url: "/visitor/record",
+        method: "post",
+        data,
+      }).then((res) => {
+        window.location.reload();
+      });
+    }
+    function del(id) {
+      if (!confirm("삭제하시겠습니까?")) {
+        return;
+      }
+      axios({
+        url: "visitor/delete",
+        method: "delete",
+        data: { id: Number(id) },
+      }).then((res) => {
+        window.location.reload();
+      });
+    }
+
+    function pick(id) {
+      axios({
+        url: `visitor/pick?id=${id}`,
+        method: "get",
+      })
+        .then((res) => {
+          const data = res.data[0];
+          document.getElementById("name").value = data.name;
+          document.getElementById("comment").value = data.comment;
+          const btn = document.querySelector("#comment ~ button");
+          return { id: data.id, btn: btn };
+        })
+        .then((res) => {
+          console.log(res);
+          res.btn.onclick = edit;
+          function edit() {
+            const form = document.forms["visitRecord"];
+            axios({
+              url: "visitor/edit",
+              method: "patch",
+              data: {
+                id: res.id,
+                name: form.name.value,
+                comment: form.comment.value,
+              },
+            }).then((res) => {
+              window.location.reload();
+            });
+          }
+        });
+    }
+  </script>
+</html>
