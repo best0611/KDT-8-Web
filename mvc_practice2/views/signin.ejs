@@ -32,24 +32,18 @@
           url: "/user/signin",
           data,
         }).then((res) => {
+          console.log(res);
           console.log(res.data);
-          if (res.data[1] == false) {
+          if (res.data.result) {
+            alert("로그인 성공");
+            const form_profile = document.forms['form_profile']
+            form_profile.profile.value = form.userid.value
+            form_profile.submit()
+          } else {
             alert("회원 정보가 없습니다.");
             window.location.reload(); // 또는 form.reset();
-          } else {
-            const form_profile = document.forms["form_profile"];
-            form_profile.profile.value = form.userid.value;
-            form_profile.submit();
-
-            //   return res.data[0][0];
           }
-        });
-        //   .then((res) => {
-        //     console.log(res);
-        //     if (confirm("로그인되었습니다.")) {
-        //       window.location.href = `/user/profile?userid=${res.userid}&name=${res.name}&id=${res.id}`;
-        //     }
-        //   });
+        })
       }
     </script>
   </body>

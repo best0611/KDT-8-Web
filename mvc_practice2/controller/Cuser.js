@@ -20,10 +20,10 @@ exports.postsignin = (req, res) => {
   console.log(req.body);
   User.signin(req.body, (result) => {
     console.log(result);
-    if (result == undefined) {
-      res.send(false);
+    if (result.length > 0) {
+      res.send({ result: true, data: result[0] });
     } else {
-      res.send([result, true]);
+      res.send({ result: false });
     }
   });
 };
