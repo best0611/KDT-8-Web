@@ -28,3 +28,19 @@ exports.postprofile = (data, cb) => {
     cb(row);
   });
 };
+
+exports.editprofile = (data, cb) => {
+  const sql = `UPDATE userinfo SET userid='${data.id}', name='${data.name}', pw = ${data.pw} WHERE id=${data.indexId}`;
+  conn.query(sql, (err, rows) => {
+    if (err) return;
+    cb(rows);
+  });
+};
+
+exports.delprofile = (data, cb) => {
+  const sql = `DELETE FROM userinfo WHERE id=${data}`;
+  conn.query(sql, (err, rows) => {
+    if (err) return;
+    cb(rows);
+  });
+};

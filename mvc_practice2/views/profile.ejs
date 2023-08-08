@@ -3,23 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>회원 프로필</title>
   </head>
   <body>
-    <fieldset>
-      <legend>회원 프로필</legend>
-      <label for="name">이름: </label>
-      <span id="name"><%= data.name %></span><br />
-      <label for="userid">아이디: </label>
-      <span id="userid"><%= data.userid %></span><br />
-      <!-- <label for="pw">비밀번호: </label>
-      <span id="pw"><%= %></span><br /> -->
-    </fieldset>
+    <form name="userinfo">
+      <fieldset>
+        <legend>회원 프로필</legend>
+        <label for="name">이름: </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value="<%= data.name %>"
+        /><br />
+        <label for="userid">아이디: </label>
+        <input
+          type="text"
+          name="userid"
+          id="userid"
+          value="<%= data.userid %>"
+        /><br />
+        <label for="pw">비밀번호: </label>
+        <input type="password" name="pw" id="pw" value="<%= data.pw %>" />
+      </fieldset>
+    </form>
     <button type="button" onclick="edit('<%= data.id %>')">수정</button>
     <button type="button" onclick="del('<%= data.id %>')">삭제</button>
     <script>
       function edit(i) {
-        console.log(i)
+        console.log(i);
+        const form = document.forms["userinfo"];
+        axios({
+          url: "/user/profile/edit",
+          method: "PATCH",
+          data: {
+            indexId: i,
+            id: form.userid.value,
+            name: form.name.value,
+            pw: form.pw.value,
+          },
+        }).then((res) => {
+          alert("수정되었습니다.");
+        });
+      }
+      function del(i) {
+        if (confirm("회원정보를 삭제하시겠습니까?")) {
+          axios({
+            url: `/user/profile/delete?indexId=${i}`,
+            method: "DELETE",
+          }).then((res) => {
+            alert("회원정보가 삭제되었습니다.");
+            document.querySelector("#userid").value = "";
+            document.querySelector("#pw").value = "";
+            document.querySelector("#name").value = "";
+          });
+        } else {
+          return;
+        }
       }
     </script>
   </body>

@@ -38,3 +38,17 @@ exports.postprofile = (req, res) => {
     }
   });
 };
+
+exports.editprofile = (req, res) => {
+  console.log(req.body);
+  User.editprofile(req.body, (result) => {
+    res.send(result);
+  });
+};
+
+exports.delprofile = (req, res) => {
+  console.log(req.query);
+  User.delprofile(req.query.indexId, (result) => {
+    res.send(result);
+  });
+};
