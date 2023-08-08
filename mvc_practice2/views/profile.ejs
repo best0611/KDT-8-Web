@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원 프로필</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>회원 프로필</legend>
+      <label for="name">이름: </label>
+      <span id="name"><%= data.name %></span><br />
+      <label for="userid">아이디: </label>
+      <span id="userid"><%= data.userid %></span><br />
+      <!-- <label for="pw">비밀번호: </label>
+      <span id="pw"><%= %></span><br /> -->
+    </fieldset>
+    <button type="button" onclick="edit('<%= data.id %>')">수정</button>
+    <button type="button" onclick="del('<%= data.id %>')">삭제</button>
+    <script>
+      function edit(i) {}
+    </script>
+  </body>
+</html>
