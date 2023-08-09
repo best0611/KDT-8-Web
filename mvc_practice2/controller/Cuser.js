@@ -23,7 +23,7 @@ exports.postsignin = (req, res) => {
     if (result.length > 0) {
       res.send({ result: true, data: result[0] });
     } else {
-      res.send({ result: false });
+      res.send({ result: false, data: null });
     }
   });
 };
