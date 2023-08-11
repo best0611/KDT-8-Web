@@ -15,7 +15,7 @@ export const getsignup = (req, res) => {
 // };
 export const postsignup = async (req, res) => {
   try {
-    await User.postsignup(req.body);
+    await User.signup(req.body);
     res.send({ result: true });
   } catch {
     console.log(error);
@@ -50,6 +50,7 @@ export const postsignin = async (req, res) => {
 export const postprofile = async (req, res) => {
   try {
     const result = await User.postprofile(req.body.profile);
+    console.log(result);
     if (result.length > 0) {
       res.render("profile", { data: result[0] });
     } else {

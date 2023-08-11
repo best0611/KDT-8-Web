@@ -1,5 +1,5 @@
 // const mysql = require("mysql");
-import mysql from "mysql2/prommise"; // async, await 사용 가능
+import mysql from "mysql2/promise"; // async, await 사용 가능
 
 const conn = mysql.createPool({
   host: "localhost",
@@ -24,7 +24,7 @@ export const signup = async (data) => {
 
 export const signin = async (data) => {
   try {
-    const sql = `SELECT * FROM userinfo WHERE userid = ? AND pw ?`;
+    const sql = "SELECT * FROM userinfo WHERE userid = ? AND pw = ?";
     const [rows] = await conn.query(sql, [data.userid, data.pw]); // 배열 구조분해 할당을 이용하여, query의 결과 배열 내 첫번째 배열만을 받아옴
     return rows;
   } catch (error) {
@@ -39,8 +39,10 @@ export const signin = async (data) => {
 
 export const postprofile = async (data) => {
   try {
+    console.log(data);
     const sql = `SELECT * FROM userinfo WHERE userid = ?`;
     const [rows] = await conn.query(sql, [data]);
+    console.log(rows);
     return rows;
   } catch (error) {
     console.log(error);
