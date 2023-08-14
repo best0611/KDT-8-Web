@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>로그인 완료</title>
+  </head>
+  <body>
+    <div><%= data.loginSuccess %>님 환영합니다.</div>
+    <button onclick="logout()">로그아웃</button>
+
+    <script>
+      console.log("<%= data.loginSuccess %>");
+      function logout() {
+        axios({
+          url: "/logout",
+          method: "GET",
+        });
+      }
+    </script>
+  </body>
+</html>

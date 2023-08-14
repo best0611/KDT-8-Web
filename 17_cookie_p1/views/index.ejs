@@ -10,11 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <style>
-      /* #exampleModal {
-        display: flex;
-      } */
-    </style>
     <title>Document</title>
   </head>
   <body>
@@ -40,12 +35,20 @@
             </p>
           </div>
           <div class="modal-footer">
-            <input type="checkbox" id="stopShow" /> 오늘 그만보기
+            <input type="checkbox" id="stopShow" />
+            <label for="stopShow">오늘 그만보기</label>
           </div>
         </div>
       </div>
     </div>
     <script>
+      // 리더님 풀이
+      // const modal = new bootstrap.Modal('#exampleModal')
+      // console.log('<%= popup %>')
+      // if ('<%= popup %>'' === ''){
+      //   modal.show()
+      // }
+
       var x = document.cookie;
       if (x == "") {
         $("#exampleModal").show();
@@ -53,6 +56,14 @@
         $("#exampleModal").hide();
       }
 
+      // function closed(){
+      //   if (document.getElementById('stopShow').checked){
+      //     axios({
+      //       url: '/stopShow',
+      //       method: 'POST'
+      //     }).then((res) =>{})
+      //   }
+      // }
       function closed() {
         $("#exampleModal").hide();
         if (document.getElementById("stopShow").checked) {
