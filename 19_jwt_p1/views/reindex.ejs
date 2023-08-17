@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>HOME😏</h1>
+    <div id="home"></div>
+    <script>
+      (async function () {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          document.querySelector("#home").innerHTML =
+            '<a href="/login">로그인</a>';
+        } else {
+          const res = await axios({
+            method: "POST",
+            url: "/token",
+            headers: {
+              authorization: `Bearer ${token}`,
+            },
+          });
+          console.log(res);
+          document.querySelector(
+            "#home"
+          ).innerHTML = `<p>${res.data.name}님 환영합니다.</p><button type="button" onclick="logout()">로그아웃</button>`;
+        }
+      })();
+      function logout() {
+        localStorage.clear();
+        document.location.reload();
+      }
+    </script>
+  </body>
+</html>
