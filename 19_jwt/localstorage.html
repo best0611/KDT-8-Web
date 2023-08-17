@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // (function(){
+
+      // })()
+      // 즉시 실행해야 하는 함수는 이렇게 넣어줌.
+      (function () {
+        localStorage.setItem("id", "kdt8"); // localstorage에 key가 id인 kdt8 값이 생성됨
+        // localStorage는 검사 > application에서 확인 가능
+        const local = localStorage.getItem("id");
+        // 생성할 때는 키, value 모두 필요하지만, 쓸 때는 키만 입력해주면 됨
+        localStorage.clear(); // localStorage 지움
+      })();
+    </script>
+  </body>
+</html>

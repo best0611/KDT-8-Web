@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>로그인</title>
+  </head>
+  <body>
+    <div id="welcome">
+      <button onclick="logout()">로그아웃</button>
+    </div>
+    <div id="userinfo">
+      <form name="userinfo">
+        <label for="userid">아이디: </label>
+        <input type="text" name="userid" id="userid" /><br />
+        <label for="userpw">비밀번호: </label>
+        <input type="password" name="userpw" id="userpw" /><br />
+        <button type="button" onclick="login()">로그인</button>
+      </form>
+    </div>
+    <script>
+      (async function () {
+        document.querySelector("#welcome").style.visibility = "hidden";
+        if (localStorage.getItem("token") != null) {
+          const res = await axios({
+            method: "GET",
+            url: "/verify",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          });
+          console.log(res);
+          if (res.data.result) {
+            // 환영메시지
+            let div = document.createElement("div");
+            div.innerHTML = `${res.data.userid.userid}님 환영합니다.`;
+            document.querySelector("#welcome").prepend(div);
+            document.querySelector("#userinfo").style.visibility = "hidden";
+            document.querySelector("#welcome").style.visibility = "visible";
+          } else {
+            //로그인
+            document.querySelector("#userinfo").style.visibility = "visible";
+            document.querySelector("#welcome").style.visibility = "hidden";
+          }
+        }
+      })();
+
+      function login() {
+        const userinfo = document.forms["userinfo"];
+        axios({
+          method: "POST",
+          url: "/login",
+          data: {
+            userid: userinfo.userid.value,
+            userpw: userinfo.userpw.value,
+          },
+        }).then((res) => {
+          console.log("res", res);
+          if (res.data.result) {
+            localStorage.setItem("token", `${res.data.token}`);
+          } else {
+            alert("로그인에 실패하였습니다.");
+          }
+          window.location.reload();
+        });
+      }
+      function logout() {
+        localStorage.clear();
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>
