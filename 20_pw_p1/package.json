@@ -1,11 +1,9 @@
 {
-  "name": "20_pw",
+  "name": "20_pw_p1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=dev node index.js",
-    "start:prod": "cross-env NODE_ENV=prod node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,9 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
-    "cross-env": "^7.0.3",
-    "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0",
+    "sequelize": "^6.32.1",
+    "sequelize-cli": "^6.6.1"
   }
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Signin</title>
+  </head>
+  <body>
+    <h1>로그인</h1>
+    <form name="login_form">
+      <input type="text" id="userid" placeholder="아이디" /><br />
+      <input type="password" id="pw" placeholder="비밀번호" /><br />
+      <button type="button" onclick="login()">로그인</button>
+    </form>
+    <script>
+      async function login() {
+        const form = document.forms["login_form"];
+        const res = await axios({
+          method: "POST",
+          url: "/signin",
+          data: { userid: form.userid.value, pw: form.pw.value },
+        });
+        console.log(res.data.compare);
+        if (res.data.compare) {
+          alert("로그인 완료");
+        } else if (res.data.compare == false) {
+          alert("아이디와 비밀번호가 일치하지 않습니다.");
+          document.location.reload();
+        } else {
+          alert("존재하지 않는 아이디입니다.");
+          document.location.reload();
+        }
+      }
+    </script>
+  </body>
+</html>
