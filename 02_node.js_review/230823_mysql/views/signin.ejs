@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>로그인</title>
+  </head>
+  <body>
+    <h1>로그인</h1>
+    <form onsubmit="login(event)">
+      <input type="text" id="userid" placeholder="아이디" /><br />
+      <input type="password" id="pw" placeholder="비밀번호" /><br />
+      <button type="submit">로그인</button>
+    </form>
+    <script>
+      function login(e) {
+        e.preventDefault(); // 기본 제출을 멈춤.
+        axios({
+          url: "/signin",
+          method: "POST",
+          data: {
+            userid: document.querySelector("#userid").value,
+            pw: document.querySelector("#pw").value,
+          },
+        }).then((res) => {
+          if (res.data.result) {
+            alert(`${res.data.data.name}님 환영합니다!`);
+          } else {
+            alert("로그인에 실패하였습니다.");
+            document.location.reload();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
