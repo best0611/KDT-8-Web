@@ -83,7 +83,43 @@ const db_signin = (data, cb) => {
   });
 };
 
+const db_profile = (cb) => {
+  const query = "SELECT userid, name, id FROM userinfo";
+  conn.query(query, (err, rows) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("db_profile", rows);
+    cb(rows);
+  });
+};
+
+const db_pickProfile = (id, cb) => {
+  const query = "SELECT userid, name, id FROM userinfo WHERE id = ?";
+  conn.query(query, [id], (err, rows) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("db_pickProfile", rows);
+    cb(rows[0]);
+  });
+};
+
+const db_editProfile = (data, cb) => {
+  const query = "UPDATE userinfo SET userid = ?, name = ? WHERE id = ?";
+  conn.query(query, [data.userid, data.name, data.id], (err, rows) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("db_editProfile", rows);
+    cb();
+  });
+};
+
 module.exports = {
   db_signup,
   db_signin,
+  db_profile,
+  db_pickProfile,
+  db_editProfile,
 };

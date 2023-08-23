@@ -10,6 +10,11 @@ const signup = (req, res) => {
 const signin = (req, res) => {
   res.render("signin");
 };
+const profile = (req, res) => {
+  model.db_profile((result) => {
+    res.render("profile", { data: result });
+  });
+};
 
 // POST
 const post_signup = (req, res) => {
@@ -27,6 +32,17 @@ const post_signin = (req, res) => {
   });
 };
 
+const pickProfile = (req, res) => {
+  //   console.log(req.query);
+  model.db_pickProfile(req.query.id, (result) => {
+    res.json({ data: result });
+  });
+};
+const editProfile = (req, res) => {
+  model.db_editProfile(req.body, () => {
+    res.json({ result: true });
+  });
+};
 // res.render: 뷰페이지(Nodejs가 제공하는 템플릿)를 렌더링. render('뷰페이지이름', 데이터(선택))
 // res.send: 모든 타입의 데이터(문자열, 배열, 객체, 숫자 등) 전송
 // res.json: 객체 타입 데이터만 전송
@@ -36,6 +52,9 @@ module.exports = {
   main,
   signup,
   signin,
+  profile,
   post_signup,
   post_signin,
+  pickProfile,
+  editProfile,
 };
