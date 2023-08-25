@@ -24,12 +24,16 @@ const signup = (req, res) => {
 };
 //로그인 페이지
 const signin = (req, res) => {
-  res.render("signin");
+  if (req.session.userInfo) {
+    res.redirect(`/profile/${req.session.userInfo.id}`);
+  } else {
+    res.render("signin");
+  }
 };
 //회원정보 조회 페이지
 const profile = (req, res) => {
   console.log(req.params);
-  console.log(req.session.name);
+  console.log(req.session.userInfo);
   // model.db_profile(req.params, (result) => {
   //     res.render('profile', { data: result[0] });
   // });
@@ -81,7 +85,8 @@ const post_signin = async (req, res) => {
   if (user) {
     const result = await comparePassword(pw, user.pw);
     if (result) {
-      req.session.name = user.name;
+      req.session.userInfo = { name: user.name, id: user.id };
+      // req.session.name = user.name;
       res.json({ result: true, data: user });
     } else {
       res.json({
@@ -112,6 +117,10 @@ const edit_profile = (req, res) => {
 const destroy = (req, res) => {
   const { id } = req.body;
   User.destroy({ where: { id } }).then(() => {
+    // 쿠키삭제 (res.clearCookie('쿠키이름'))
+    res.clearCookie("testCookie");
+    // 세션삭제
+    req.session.destroy();
     res.json({ result: true });
   });
 };
