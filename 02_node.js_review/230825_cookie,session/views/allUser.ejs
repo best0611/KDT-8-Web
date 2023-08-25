@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>회원리스트</h1>
+    <div><%= user %>님 안녕하세요</div>
+    <table border="1" cellspacing="0" cellpadding="10">
+      <thead>
+        <td>회원명</td>
+        <td>회원아이디</td>
+      </thead>
+      <tbody>
+        <% for (i=0; i < data.length; i++) { %>
+        <tr>
+          <td><%= data[i].name %></td>
+          <td><%= data[i].userid %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <script>
+      if ("<%= data %>" == "false") {
+        alert("접속 권한이 없습니다.");
+        document.location.href = "/";
+      }
+    </script>
+  </body>
+</html>
