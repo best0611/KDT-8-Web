@@ -110,14 +110,19 @@ const edit_profile = (req, res) => {
   const [bearer, token] = req.headers.authorization.split(" ");
   if (bearer === "Bearer") {
     // 토큰 인증
-    const result = jwt.verify(token, SECRET);
-    console.log(result);
-    const { name, pw, id } = req.body;
-    User.update({ name, pw }, { where: { id } }).then(() => {
-      res.json({ result: true });
-    });
-  } else {
-    res.json({ result: false, message: "올바른 인증방식이 아닙니다." });
+    try {
+      const result = jwt.verify(token, SECRET);
+      // 검증 후에, id, pw로 정말 회원이 맞는지 확인하는 절차도 필요함
+      // (그 절차가 없으면, 토큰 값 알고 있는 사람 누구나 접근이 가능하므로)
+      const resultValue = User.findOne({ where: { id: result.id } });
+      const { name, pw, id } = req.body;
+      User.update({ name, pw }, { where: { id } }).then(() => {
+        res.json({ result: true });
+      });
+    } catch (error) {
+      console.log(error);
+      res.json({ result: false, message: "올바른 인증방식이 아닙니다." });
+    }
   }
 };
 
