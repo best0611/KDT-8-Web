@@ -20,12 +20,20 @@ wss.on("connection", (socket) => {
   console.log("클라이언트가 연결되었습니다.");
   sockets.push(socket);
   socket.on("message", (message) => {
+    // 웹소켓을 통해 클라이언트와 서버 간의 데이터를 주고받을 때는 일반적으로 문자열 또는 버퍼 형태로 전달됨
+    // 서버가 모두 다른 환경이기 때문에, 객체를 전달할 때 객체를 일련의 바이트로 변환하는 직렬화과정이 필요
+
     // 문자열로 받은 message를 다시 객체로 parsing. (nodejs는 객체 읽을 수 있으므로)
     const user = JSON.parse(message).user;
     const msg = JSON.parse(message).msg;
-    sockets.forEach((elem) => {
+
+    // wss.clients: 현재 서버에 접속하고 있는 클라이언트 모두 속해 있음.
+    wss.clients.forEach((elem) => {
       elem.send(`${user}: ${msg}`);
     });
+    // sockets.forEach((elem) => {
+    //   elem.send(`${user}: ${msg}`);
+    // });
   });
   socket.on("error", (err) => {
     console.log("에러가 발생하였습니다.", err);

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+      div {
+        width: 300px;
+        height: 500px;
+        background-color: skyblue;
+        display: flex;
+      }
+      .right {
+        /* position: relative; */
+        background-color: yellow;
+        border-radius: 20%;
+        z-index: 10;
+      }
+      .left {
+        background-color: white;
+        /* position: relative; */
+        /* left: 20px; */
+        border-radius: 10%;
+        z-index: 10;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="space"></div>
+    <form id="chat">
+      <input type="text" id="message" placeholder="채팅 내용" />
+      <button>채팅</button>
+    </form>
+
+    <script>
+      const chatForm = document.querySelector("#chat");
+      const space = document.querySelector("#space");
+      const socket = io();
+      const chatroom = prompt("채팅방을 입력하세요: ");
+      socket.emit("join", chatroom);
+      socket.on("userjoin", (message) => {
+        console.log(message);
+      });
+      socket.on("chat", (id, message) => {
+        const span = document.createElement("span");
+        span.textContent = message;
+        if (socket.id === id) {
+          span.classList.add("right");
+        } else {
+          span.classList.add("left");
+        }
+        space.appendChild(span);
+      });
+
+      chatForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const msg = document.querySelector("#message");
+        socket.emit("message", msg.value);
+        msg.value = "";
+      });
+    </script>
+  </body>
+</html>

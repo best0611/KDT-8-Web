@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <button onclick="hello()">hello</button>
+    <button onclick="study()">study</button>
+    <button onclick="bye()">bye</button>
+    <div id="msg"></div>
+    <script>
+      const socket = io();
+      const msg = document.querySelector("#msg");
+      function hello() {
+        socket.emit("helloE", { name: "client", message: "hello" });
+      }
+      function study() {
+        socket.emit("studyE", { name: "client", message: "study" });
+      }
+      function bye() {
+        socket.emit("byeE", { name: "client", message: "bye" });
+      }
+      socket.on("response", (arg) => {
+        msg.textContent = `${arg.name}: ${arg.message}`;
+      });
+    </script>
+  </body>
+</html>
