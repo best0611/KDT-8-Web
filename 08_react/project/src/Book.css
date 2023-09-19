@@ -1,0 +1,22 @@
+.contentBox {
+  background-color: beige;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.headerBox {
+  text-align: center;
+  color: orange;
+}
+.header {
+  padding-top: 20px;
+  font-size: 25px;
+}
+.bookInfo div {
+  padding: 10px;
+  padding-left: 20px;
+  font-weight: bolder;
+}
+.bookTitle {
+  margin-top: 20px;
+  font-size: 20px;
+}
