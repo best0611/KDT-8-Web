@@ -7,6 +7,13 @@
   </head>
   <body>
     <script>
+      const list = ["a", "b", "c", "d", "e"];
+      const items = list.map((value) => {
+        return value + "@";
+      });
+      console.log(items);
+    </script>
+    <!-- <script>
       const socket = new WebSocket("ws://localhost:8000");
 
       // 서버에 연결
@@ -27,6 +34,6 @@
       socket.addEventListener("close", (event) => {
         console.log("서버와 연결이 종료됨");
       });
-    </script>
+    </script> -->
   </body>
 </html>

@@ -1,0 +1,48 @@
+.input {
+  text-align: center;
+  margin: 10px;
+}
+.test {
+  text-align: center;
+  background-color: beige;
+  color: orange;
+}
+
+.divBox {
+  display: flex;
+}
+.red {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+}
+.orange {
+  background-color: orange;
+  width: 50px;
+  height: 75px;
+}
+.yellow {
+  background-color: yellow;
+  width: 50px;
+  height: 100px;
+}
+.green {
+  background-color: green;
+  width: 50px;
+  height: 125px;
+}
+.blue {
+  background-color: blue;
+  width: 50px;
+  height: 150px;
+}
+.navy {
+  background-color: navy;
+  width: 50px;
+  height: 175px;
+}
+.purple {
+  background-color: purple;
+  width: 50px;
+  height: 200px;
+}
