@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// import Event from "./Event";
+// import EventClass from "./EventClass";
+// import PracticeEvent from "./Practice1";
+// import Counter from "./Couter";
+// import StatePractice1 from "./StatePractice1";
+// import StatePractice2 from "./StatePractice2";
+import StatePractice3 from "./StatePractice3";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Event />
+      <EventClass /> */}
+      {/* <PracticeEvent message={"안녕하세요"} /> */}
+      {/* <Counter /> */}
+      {/* <StatePractice1 /> */}
+      {/* <StatePractice2 /> */}
+      <StatePractice3 />
+    </>
   );
 }
 
