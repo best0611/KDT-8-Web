@@ -12,12 +12,13 @@ export default function State5Func() {
       alert("할 일이 너무 많아요!");
     }
   };
-  const changeStatus = (target, i) => {
-    // console.log(i.index);
-    if (target.checked) {
-      todoList[i.index].status = true;
-    } else {
-      todoList[i.index].status = false;
+  const changeStatus = (text, checked) => {
+    if (checked) {
+      setTodoList(
+        todoList.map((value) =>
+          value.text === text ? { ...value, status: true } : value
+        )
+      );
     }
   };
   const removeTodo = () => {
@@ -53,7 +54,7 @@ export default function State5Func() {
               <input
                 type="checkbox"
                 value={value.text}
-                onChange={(e) => changeStatus(e.target, { index })}
+                onChange={(e) => changeStatus(e.target.value, e.target.checked)}
                 checked={value.status}
               />
               {value.text}
@@ -61,7 +62,9 @@ export default function State5Func() {
           );
         })}
       </ul>
-      <button onClick={removeTodo}>완료된 할 일 삭제</button>
+      <button type="button" onClick={removeTodo}>
+        완료된 할 일 삭제
+      </button>
     </div>
   );
 }
