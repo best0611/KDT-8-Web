@@ -14,16 +14,28 @@
 // import State2Func from "./State2Func";
 // import State3Func from "./State3Func";
 // import State5Func from "./State5Func";
+// Life cycle
 // import LifeCycleClass from "./08_Lifecycle/LifeCycleClass";
 // import LifeCycleFunc from "./08_Lifecycle/LifeCycleFunc";
 // import LifeCycleP1 from "./08_Lifecycle/LifeCycleP1";
-import LifeCycleP2 from "./08_Lifecycle/LifeCycleP2";
+// import LifeCycleP2 from "./08_Lifecycle/LifeCycleP2";
+// Ref
+// import RefClass from "./09_hook/RefClass";
+// import RefClassP1 from "./09_hook/RefClassP1";
+// import RefFunc from "./09_hook/RefFunc";
+// import RefFunc2 from "./09_hook/RefFunc2";
+// import RefFuncP1 from "./09_hook/RefFuncP1";
+// 나머지 Hook
+// import UseMemo from "./09_hook/UseMemo";
+// import UseCallback from "./09_hook/UseCallback";
+// import UseReducer from "./09_hook/UseReducer";
+import LoginPage from "./09_hook/LoginPage";
 
 function App() {
   return (
     <>
-      {/* <Event />
-      <EventClass /> */}
+      {/* <Event /> */}
+      {/* <EventClass /> */}
       {/* <PracticeEvent message={"안녕하세요"} /> */}
       {/* <Counter /> */}
       {/* <StatePractice1 /> */}
@@ -40,7 +52,16 @@ function App() {
       {/* <LifeCycleClass /> */}
       {/* <LifeCycleFunc /> */}
       {/* <LifeCycleP1 /> */}
-      <LifeCycleP2 />
+      {/* <LifeCycleP2 /> */}
+      {/* <RefClass /> */}
+      {/* <RefClassP1 /> */}
+      {/* <RefFunc /> */}
+      {/* <RefFunc2 /> */}
+      {/* <RefFuncP1 /> */}
+      {/* <UseMemo /> */}
+      {/* <UseCallback /> */}
+      {/* <UseReducer /> */}
+      <LoginPage />
     </>
   );
 }
