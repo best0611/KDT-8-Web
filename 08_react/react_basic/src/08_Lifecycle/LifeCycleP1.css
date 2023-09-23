@@ -1,0 +1,17 @@
+.Header {
+  text-align: center;
+  background-color: beige;
+  padding: 20px;
+}
+.Contents div {
+  background-color: rgb(214, 248, 248);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+.Loading {
+  text-align: center;
+}
+.Loading p {
+  font-size: 20px;
+}

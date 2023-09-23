@@ -13,7 +13,11 @@
 // import State1Func from "./State1Func";
 // import State2Func from "./State2Func";
 // import State3Func from "./State3Func";
-import State5Func from "./State5Func";
+// import State5Func from "./State5Func";
+// import LifeCycleClass from "./08_Lifecycle/LifeCycleClass";
+// import LifeCycleFunc from "./08_Lifecycle/LifeCycleFunc";
+// import LifeCycleP1 from "./08_Lifecycle/LifeCycleP1";
+import LifeCycleP2 from "./08_Lifecycle/LifeCycleP2";
 
 function App() {
   return (
@@ -32,7 +36,11 @@ function App() {
       {/* <State1Func /> */}
       {/* <State2Func /> */}
       {/* <State3Func /> */}
-      <State5Func />
+      {/* <State5Func /> */}
+      {/* <LifeCycleClass /> */}
+      {/* <LifeCycleFunc /> */}
+      {/* <LifeCycleP1 /> */}
+      <LifeCycleP2 />
     </>
   );
 }
