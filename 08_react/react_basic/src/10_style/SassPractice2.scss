@@ -1,0 +1,19 @@
+@import "./utils.scss";
+
+.circle {
+  @include box(50px);
+  border-radius: 50px;
+  position: relative;
+  &.pink {
+    background-color: $color-pink;
+    @include moving(50px, pinkAni);
+  }
+  &.yellow {
+    background-color: $color-yellow;
+    @include moving(100px, yellowAni);
+  }
+  &.green {
+    background-color: $color-green;
+    @include moving(150px, greenAni);
+  }
+}

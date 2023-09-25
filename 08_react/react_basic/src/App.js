@@ -29,7 +29,15 @@
 // import UseMemo from "./09_hook/UseMemo";
 // import UseCallback from "./09_hook/UseCallback";
 // import UseReducer from "./09_hook/UseReducer";
-import LoginPage from "./09_hook/LoginPage";
+// import LoginPage from "./09_hook/LoginPage";
+// style
+// import Style from "./10_style/Style";
+// import SassComponent from "./10_style/SassComponent";
+// import SassPractice1 from "./10_style/SassPractice1";
+// import SassPractice2 from "./10_style/SassPractice2";
+// import StyledComponent from "./10_style/StyledComponent";
+// import StyleCompPrac1 from "./10_style/StyleCompPrac1";
+import StyleCompPrac2 from "./10_style/StyleCompPrac2";
 
 function App() {
   return (
@@ -61,7 +69,14 @@ function App() {
       {/* <UseMemo /> */}
       {/* <UseCallback /> */}
       {/* <UseReducer /> */}
-      <LoginPage />
+      {/* <LoginPage /> */}
+      {/* <Style /> */}
+      {/* <SassComponent /> */}
+      {/* <SassPractice1 /> */}
+      {/* <SassPractice2 /> */}
+      {/* <StyledComponent /> */}
+      {/* <StyleCompPrac1 /> */}
+      <StyleCompPrac2 />
     </>
   );
 }

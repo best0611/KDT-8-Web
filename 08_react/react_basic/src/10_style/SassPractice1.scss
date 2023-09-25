@@ -1,0 +1,55 @@
+@import "./utils.scss";
+.parent {
+  position: relative;
+  left: 50px;
+  .circle {
+    @include box(100px);
+    border-radius: 50%;
+    position: absolute;
+    &.circle1 {
+      @include circlePos(200px, 70px);
+      background-color: #0e757a;
+      z-index: 20;
+    }
+    &.circle2 {
+      @include circlePos(150px, 68px);
+      background-color: #99cffb;
+      z-index: 18;
+    }
+    &.circle3 {
+      @include circlePos(100px, 70px);
+      background-color: #230f99;
+      z-index: 16;
+    }
+    &.circle4 {
+      @include circlePos(50px, 50px);
+      background-color: #3069ef;
+      z-index: 14;
+    }
+    &.circle5 {
+      @include circlePos(0px, 0px);
+      background-color: #249bfd;
+      z-index: 12;
+    }
+    &.circle6 {
+      @include box(40px);
+      @include circlePos(22px, 15px);
+      background-color: white;
+      z-index: 20;
+    }
+    &.circle7 {
+      @include box(20px);
+      @include circlePos(23px, 20px);
+      background-color: black;
+      z-index: 24;
+    }
+  }
+  .grass {
+    position: absolute;
+    @include circlePos(-100px, 80px);
+    z-index: 19;
+  }
+  .grassImage {
+    @include box(60%);
+  }
+}
