@@ -37,7 +37,11 @@
 // import SassPractice2 from "./10_style/SassPractice2";
 // import StyledComponent from "./10_style/StyledComponent";
 // import StyleCompPrac1 from "./10_style/StyleCompPrac1";
-import StyleCompPrac2 from "./10_style/StyleCompPrac2";
+// import StyleCompPrac2 from "./10_style/StyleCompPrac2";
+// Router
+// import Router from "./Router";
+import { Outlet } from "react-router-dom";
+import Header from "./11_Router/Header";
 
 function App() {
   return (
@@ -76,7 +80,14 @@ function App() {
       {/* <SassPractice2 /> */}
       {/* <StyledComponent /> */}
       {/* <StyleCompPrac1 /> */}
-      <StyleCompPrac2 />
+      {/* <StyleCompPrac2 /> */}
+      {/* 라우터 */}
+      {/* ver.1 */}
+      {/* <Router /> */}
+      {/* ver.2 */}
+      {/* App 컴포넌트는 최상단에 위치한 것으로, Header와 그 자식(Outlet) 컴포넌트를 열 수 있음 */}
+      <Header />
+      <Outlet />
     </>
   );
 }

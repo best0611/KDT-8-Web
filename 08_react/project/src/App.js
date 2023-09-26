@@ -1,18 +1,22 @@
+/*
 import ClassComponent from "./ClassComponent";
 import FunctionComponent from "./FunctionComponent";
-// import Test from "./test";
-// import TestSecond from "./test2";
+import Test from "./test";
+import TestSecond from "./test2";
 import FoodComponent from "./food";
 import BookComponent from "./Book";
+*/
+import { Outlet } from "react-router-dom";
 
 function App() {
+  /*
   return (
     <>
       <h1>컴포넌트</h1>
-      {/* <ClassComponent></ClassComponent> */}
-      {/* <FunctionComponent /> */}
-      {/* <Test /> */}
-      {/* <TestSecond /> */}
+      <ClassComponent></ClassComponent>
+      <FunctionComponent />
+      <Test />
+      <TestSecond />
       <ClassComponent name="jekyoung" />
       <ClassComponent />
       <FunctionComponent name="kdt8" age={12}>
@@ -27,6 +31,12 @@ function App() {
         price="13,500"
         type="자기계발서"
       />
+    </>
+  );
+  */
+  return (
+    <>
+      <Outlet />
     </>
   );
 }
