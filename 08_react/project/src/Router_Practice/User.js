@@ -6,7 +6,9 @@ export default function User() {
   const { name } = useParams();
   return (
     <>
-      <div>학생의 이름은 {name}입니다.</div>
+      <div>
+        학생의 이름은 <span style={{ color: "green" }}>{name}</span>입니다.
+      </div>
       <Outlet context={realName} />
     </>
   );
