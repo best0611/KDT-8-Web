@@ -11,8 +11,7 @@ const sequelize = new Sequelize(
   config
 );
 
-db.User = require("./User")(sequelize);
-
+db.Todo = require("./Todo")(sequelize);
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
