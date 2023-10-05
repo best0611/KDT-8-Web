@@ -20,6 +20,7 @@ export default function ProductList() {
     },
   ];
   const inCart = useContext(cartContext);
+  // onClick 이벤트를 Context 파일에 넣을 수도 있음.
   const addCart = (id) => {
     const checkItem = inCart.cart.filter((item) => {
       return item.id === id ? true : false;

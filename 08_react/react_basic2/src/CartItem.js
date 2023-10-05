@@ -5,9 +5,11 @@ export default function CartItem() {
   const inCart = useContext(cartContext);
   const { cart, setCart } = inCart;
   const delCart = (id) => {
+    // filter를 사용하여 새로운 배열 반환
+    // 리액트에서 특정 값을 직접적으로 바꿀 수는 없음
     setCart(cart.filter((item) => item.id !== id));
   };
-  let totalPrice = 0;
+  // let totalPrice = 0;
   const style = {
     display: "flex",
   };
@@ -16,6 +18,11 @@ export default function CartItem() {
     margin: "5px",
     padding: "20px",
   };
+
+  // const totalPrice = () => {}
+  //
+  // reduce: 배열의 모든 요소를 더할 때 사용. 하나의 결과를 반환.
+  const totalPrice = cart.reduce((acc, val) => acc + val.price);
   return (
     <>
       <h2>장바구니</h2>
@@ -30,9 +37,9 @@ export default function CartItem() {
                 <button type="button" onClick={() => delCart(item.id)}>
                   제거
                 </button>
-                <p hidden>
+                {/* <p hidden>
                   {(totalPrice += Number(item.price) * Number(item.count))}
-                </p>
+                </p> */}
               </div>
             );
           })
@@ -40,6 +47,8 @@ export default function CartItem() {
           <div>장바구니에 상품이 없습니다.</div>
         )}
       </div>
+      {/* 즉시 실행 함수 */}
+      {/* {totalPrice()} */}
       <h4>총 가격: {totalPrice}원</h4>
     </>
   );
